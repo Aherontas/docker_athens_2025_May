@@ -1,0 +1,40 @@
+# Replica of the original config.yaml file with the addition of a new model and its configuration.
+# Is located under /Users/<USER_NAME>/.continue/config.yaml
+name: Local Assistant
+version: 1.0.0
+schema: v1
+models:
+  - name: docker_athens
+    provider: openai
+    model: ai/smollm2
+    apiBase: http://localhost:12434/engines/llama.cpp/v1
+    roles:
+      - chat
+      - edit
+      - apply
+  - name: docker_athens_qwen
+    provider: openai
+    model: ai/qwen3
+    apiBase: http://localhost:12434/engines/llama.cpp/v1
+    roles:
+      - chat
+      - edit
+      - apply
+  - name: Qwen2.5-Coder 1.5B
+    provider: ollama
+    model: qwen2.5-coder:1.5b-base
+    roles:
+      - autocomplete
+  - name: Nomic Embed
+    provider: ollama
+    model: nomic-embed-text:latest
+    roles:
+      - embed
+context:
+  - provider: code
+  - provider: docs
+  - provider: diff
+  - provider: terminal
+  - provider: problems
+  - provider: folder
+  - provider: codebase
