@@ -4,14 +4,6 @@ name: Local Assistant
 version: 1.0.0
 schema: v1
 models:
-  - name: docker_athens
-    provider: openai
-    model: ai/smollm2
-    apiBase: http://localhost:12434/engines/llama.cpp/v1
-    roles:
-      - chat
-      - edit
-      - apply
   - name: docker_athens_qwen
     provider: openai
     model: ai/qwen3
